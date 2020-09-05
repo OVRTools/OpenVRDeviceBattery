@@ -30,13 +30,13 @@ namespace OpenVRDeviceBattery
                 if (name.EndsWith("_String"))
                     value = OpenVRUtils.GetTrackedDeviceProperty(deviceIndex, prop);
                 else if (name.EndsWith("_Bool"))
-                    value = Program.openVRHandle.GetBoolTrackedDeviceProperty(deviceIndex, prop, ref err).ToString();
+                    value = Program.OpenVRHandle.GetBoolTrackedDeviceProperty(deviceIndex, prop, ref err).ToString();
                 else if (name.EndsWith("_Float"))
-                    value = Program.openVRHandle.GetFloatTrackedDeviceProperty(deviceIndex, prop, ref err).ToString();
+                    value = Program.OpenVRHandle.GetFloatTrackedDeviceProperty(deviceIndex, prop, ref err).ToString();
                 else if (name.EndsWith("_Uint64"))
-                    value = Program.openVRHandle.GetUint64TrackedDeviceProperty(deviceIndex, prop, ref err).ToString();
+                    value = Program.OpenVRHandle.GetUint64TrackedDeviceProperty(deviceIndex, prop, ref err).ToString();
                 else if (name.EndsWith("_Int32"))
-                    value = Program.openVRHandle.GetInt32TrackedDeviceProperty(deviceIndex, prop, ref err).ToString();
+                    value = Program.OpenVRHandle.GetInt32TrackedDeviceProperty(deviceIndex, prop, ref err).ToString();
                 else if (name.EndsWith("_Matrix34"))
                     value = "Unsupported Property Type";
 

@@ -6,11 +6,8 @@ namespace OpenVRDeviceBattery
 {
     static class Program
     {
-        public static CVRSystem openVRHandle { get; private set; } = null;
+        public static CVRSystem OpenVRHandle { get; private set; } = null;
 
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -19,11 +16,12 @@ namespace OpenVRDeviceBattery
 
             if (error != EVRInitError.None)
             {
+                MessageBox.Show($"Could not connect to OpenVR server: {OpenVR.GetStringForHmdError(error)}\n\nPlease make sure an OpenVR server is running (e.g. SteamVR) and try again.", "Fatal Error");
                 Application.Exit();
                 return;
             }
 
-            openVRHandle = handle;
+            OpenVRHandle = handle;
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

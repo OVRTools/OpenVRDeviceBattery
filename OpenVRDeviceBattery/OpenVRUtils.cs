@@ -9,11 +9,11 @@ namespace OpenVRDeviceBattery
 		public static string GetTrackedDeviceProperty(uint deviceId, ETrackedDeviceProperty prop)
 		{
 			var error = ETrackedPropertyError.TrackedProp_Success;
-			var capacity = Program.openVRHandle.GetStringTrackedDeviceProperty(deviceId, prop, null, 0, ref error);
+			var capacity = Program.OpenVRHandle.GetStringTrackedDeviceProperty(deviceId, prop, null, 0, ref error);
 			if (capacity > 1)
 			{
 				var result = new StringBuilder((int)capacity);
-				Program.openVRHandle.GetStringTrackedDeviceProperty(deviceId, prop, result, capacity, ref error);
+				Program.OpenVRHandle.GetStringTrackedDeviceProperty(deviceId, prop, result, capacity, ref error);
 				return result.ToString();
 			}
 			return null;
@@ -21,7 +21,7 @@ namespace OpenVRDeviceBattery
 
 		public static bool DeviceIsSupported(uint deviceId)
 		{
-			var deviceClass = Program.openVRHandle.GetTrackedDeviceClass(deviceId);
+			var deviceClass = Program.OpenVRHandle.GetTrackedDeviceClass(deviceId);
 
 			switch (deviceClass)
 			{
@@ -38,12 +38,12 @@ namespace OpenVRDeviceBattery
 
 		public static string DeviceTypeHumanName(uint deviceId)
 		{
-			var deviceClass = Program.openVRHandle.GetTrackedDeviceClass(deviceId);
+			var deviceClass = Program.OpenVRHandle.GetTrackedDeviceClass(deviceId);
 
 			switch(deviceClass)
 			{
 				case ETrackedDeviceClass.Controller:
-					var role = Program.openVRHandle.GetControllerRoleForTrackedDeviceIndex(deviceId);
+					var role = Program.OpenVRHandle.GetControllerRoleForTrackedDeviceIndex(deviceId);
 					switch(role)
 					{
 						case ETrackedControllerRole.LeftHand:
@@ -59,12 +59,11 @@ namespace OpenVRDeviceBattery
 					}
 					break;
 				case ETrackedDeviceClass.HMD:
-					return "HMD";
+					return $"HMD ({GetTrackedDeviceProperty(deviceId, ETrackedDeviceProperty.Prop_SerialNumber_String)})";
 				case ETrackedDeviceClass.GenericTracker:
-					var serial = GetTrackedDeviceProperty(deviceId, ETrackedDeviceProperty.Prop_SerialNumber_String);
-					return $"Tracker ({serial})";
+					return $"Tracker ({GetTrackedDeviceProperty(deviceId, ETrackedDeviceProperty.Prop_SerialNumber_String)})";
 				case ETrackedDeviceClass.TrackingReference:
-					return "Base Station";
+					return $"Base Station ({GetTrackedDeviceProperty(deviceId, ETrackedDeviceProperty.Prop_SerialNumber_String)})";
 				case ETrackedDeviceClass.DisplayRedirect:
 					return "Display Redirect";
 				default:

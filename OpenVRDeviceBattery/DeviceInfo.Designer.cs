@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeviceInfo));
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Property = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,12 +53,14 @@
             // 
             this.Property.HeaderText = "Property";
             this.Property.Name = "Property";
+            this.Property.ReadOnly = true;
             this.Property.Width = 71;
             // 
             // Value
             // 
             this.Value.HeaderText = "Value";
             this.Value.Name = "Value";
+            this.Value.ReadOnly = true;
             this.Value.Width = 59;
             // 
             // DeviceInfo
@@ -66,6 +69,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DeviceInfo";
             this.Text = "DeviceInfo";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();

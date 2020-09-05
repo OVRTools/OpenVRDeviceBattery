@@ -1,8 +1,7 @@
 # OpenVRDeviceBattery
 
-![image](https://user-images.githubusercontent.com/2646487/92312636-a7eede00-ef90-11ea-8d2d-ccc0c1e20ba0.png)
-
-![image](https://user-images.githubusercontent.com/2646487/92312644-b76e2700-ef90-11ea-8e07-d18e4614c019.png)
+**![image](https://user-images.githubusercontent.com/2646487/92312636-a7eede00-ef90-11ea-8d2d-ccc0c1e20ba0.png)**|**![image](https://user-images.githubusercontent.com/2646487/92312644-b76e2700-ef90-11ea-8e07-d18e4614c019.png)**
+:-----:|:-----:
 
 Taskbar app to monitor battery levels of OpenVR devices and see device info
 

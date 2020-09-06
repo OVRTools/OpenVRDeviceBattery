@@ -1,0 +1,15 @@
+name: "Build .NET Framework application and release"
+
+on:
+  push:
+    branches: [ gh-actions-test ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the solution
+      run: .\build.ps1
+      shell: powershell
